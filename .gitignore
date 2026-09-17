@@ -25,3 +25,11 @@ outputs/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Local-only secrets and scratch. Credentials belong here or in the environment,
+# never in tracked source.
+.local/
+.env
+.env.*
+*.token
+*credentials*
