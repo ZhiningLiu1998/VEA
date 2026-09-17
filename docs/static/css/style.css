@@ -1,0 +1,275 @@
+/* Vea project page. Single stylesheet, no external dependencies, so the page
+   renders identically offline and on GitHub Pages. */
+
+:root {
+  --ink: #0b1220;
+  --ink-2: #131c2e;
+  --bg: #ffffff;
+  --bg-alt: #f6f8fb;
+  --surface: #ffffff;
+  --border: #e3e8ef;
+  --text: #1a2233;
+  --text-muted: #5b6779;
+  --accent: #0ea5e9;
+  --accent-dark: #0369a1;
+  --hot: #d97706;
+  --evidence: #dc2626;
+  --radius: 14px;
+  --maxw: 1000px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 8px 24px rgba(16, 24, 40, .06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --bg-alt: #0f1725;
+    --surface: #131c2e;
+    --border: #24314a;
+    --text: #e8edf5;
+    --text-muted: #9aa8bd;
+    --accent: #38bdf8;
+    --accent-dark: #7dd3fc;
+    --hot: #fcd34d;
+    --evidence: #f87171;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.65 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+/* ----------------------------------------------------------------- header */
+
+header.hero {
+  background: linear-gradient(160deg, var(--ink) 0%, var(--ink-2) 100%);
+  color: #f8fafc;
+  padding: 56px 0 44px;
+  text-align: center;
+}
+
+header.hero .logo { width: min(680px, 100%); height: auto; display: block; margin: 0 auto 30px; }
+
+h1.title {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 4.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+
+p.subtitle {
+  margin: 0 auto 26px;
+  max-width: 760px;
+  font-size: clamp(16px, 2vw, 20px);
+  color: #b9c5d6;
+  font-weight: 400;
+}
+
+/* Venue sits inside the h1, so it scales with the title rather than fighting it. */
+.venue-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+  padding: 4px 14px;
+  border: 1.5px solid rgba(56, 189, 248, .45);
+  border-radius: 999px;
+  background: rgba(56, 189, 248, .12);
+  color: #7dd3fc;
+  font-size: .46em;
+  font-weight: 700;
+  letter-spacing: .07em;
+  white-space: nowrap;
+}
+
+.authors { margin: 0 auto 6px; max-width: 860px; font-size: 16.5px; color: #dbe3ee; line-height: 1.9; }
+.authors a { color: #dbe3ee; text-decoration: none; border-bottom: 1px solid rgba(219, 227, 238, .35); }
+.authors a:hover { color: #fff; border-bottom-color: #fff; }
+.affil { margin: 10px auto 0; font-size: 14.5px; color: #8fa0b8; }
+
+/* ------------------------------------------------------------------ links */
+
+.links { display: flex; flex-wrap: wrap; gap: 11px; justify-content: center; margin-top: 30px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(255, 255, 255, .07);
+  color: #f1f5f9;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .16s ease, transform .16s ease, border-color .16s ease;
+}
+.btn:hover { background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .3); transform: translateY(-1px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #04121c; }
+.btn.primary:hover { background: #7dd3fc; border-color: #7dd3fc; }
+.btn svg { width: 17px; height: 17px; fill: currentColor; }
+
+/* --------------------------------------------------------------- sections */
+
+section { padding: 60px 0; border-top: 1px solid var(--border); }
+section:first-of-type { border-top: none; }
+section.alt { background: var(--bg-alt); }
+
+h2 {
+  margin: 0 0 10px;
+  font-size: clamp(23px, 3vw, 31px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h2 .num {
+  display: inline-block;
+  margin-right: 11px;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .66em;
+  font-weight: 600;
+  vertical-align: 3px;
+}
+
+h3 { margin: 34px 0 8px; font-size: 19px; font-weight: 650; }
+
+p { margin: 0 0 16px; }
+p.lead { font-size: 19px; color: var(--text-muted); }
+
+a { color: var(--accent-dark); }
+
+strong { font-weight: 650; }
+
+/* ---------------------------------------------------------------- figures */
+
+figure { margin: 26px 0; }
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+figcaption { margin-top: 11px; font-size: 14.5px; color: var(--text-muted); line-height: 1.55; }
+figcaption b { color: var(--text); font-weight: 650; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+@media (max-width: 780px) { .two-col { grid-template-columns: 1fr; } }
+
+/* ----------------------------------------------------------------- tldr */
+
+.tldr {
+  margin: 0;
+  padding: 22px 26px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 17.5px;
+}
+.tldr b { color: var(--text); }
+
+/* --------------------------------------------------------------- steps */
+
+ol.steps { margin: 22px 0 0; padding: 0; list-style: none; counter-reset: step; }
+ol.steps li {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 15px 18px 15px 60px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  counter-increment: step;
+}
+ol.steps li::before {
+  content: counter(step, upper-alpha);
+  position: absolute;
+  left: 17px;
+  top: 15px;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #04121c;
+  font-size: 14px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+ol.steps li b { display: block; margin-bottom: 2px; }
+ol.steps li span { color: var(--text-muted); font-size: 15.5px; }
+ol.steps code { font-size: 13px; }
+
+/* ---------------------------------------------------------------- tables */
+
+.scroll { overflow-x: auto; margin: 20px 0; -webkit-overflow-scrolling: touch; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+th, td { padding: 9px 13px; text-align: right; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { background: var(--bg-alt); font-weight: 650; font-size: 13.5px; color: var(--text-muted); }
+tbody tr:last-child td { border-bottom: none; }
+tr.best { background: rgba(14, 165, 233, .07); }
+tr.best td { font-weight: 700; }
+.gain { display: block; font-size: 11.5px; font-weight: 600; color: #059669; }
+@media (prefers-color-scheme: dark) { .gain { color: #34d399; } }
+.drop { display: block; font-size: 11.5px; font-weight: 600; color: var(--evidence); }
+td.na { color: var(--text-muted); }
+
+.tnote { margin-top: 10px; font-size: 13.5px; color: var(--text-muted); }
+
+/* ------------------------------------------------------------------ code */
+
+pre {
+  margin: 18px 0;
+  padding: 17px 19px;
+  overflow-x: auto;
+  border-radius: var(--radius);
+  background: var(--ink);
+  border: 1px solid var(--border);
+  color: #e2e8f0;
+  font: 13.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+pre .c { color: #7c8aa0; }
+pre .k { color: #7dd3fc; }
+pre .s { color: #fcd34d; }
+
+code {
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  font: 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+pre code { padding: 0; background: none; border: none; font-size: inherit; }
+
+/* ---------------------------------------------------------------- footer */
+
+footer { padding: 38px 0 60px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14.5px; }
+footer p { margin: 0 0 8px; }
+
+ul.plain { margin: 14px 0; padding-left: 22px; }
+ul.plain li { margin-bottom: 8px; }

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vea: Seeing but Not Believing &mdash; Visual Attention vs. Answer Correctness in VLMs</title>
+
+<meta name="description" content="Vision-language models often attend to the correct visual evidence and still answer incorrectly. Vea is a training-free, inference-time method that surfaces a model's own deep-layer attention back into its input, improving Exact Match by up to +11.1 across 8 VLMs.">
+<meta name="author" content="Zhining Liu">
+<link rel="canonical" href="https://zhiningliu.com/VEA/">
+<link rel="icon" type="image/svg+xml" href="static/images/logo.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seeing but Not Believing: Visual Attention vs. Answer Correctness in VLMs">
+<meta property="og:description" content="VLMs already see the evidence. Vea makes them use it. Training-free, inference-time, +5.7 Exact Match on average across 8 VLMs.">
+<meta property="og:url" content="https://zhiningliu.com/VEA/">
+<meta property="og:image" content="https://zhiningliu.com/VEA/static/images/framework.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seeing but Not Believing (ICLR 2026)">
+<meta name="twitter:description" content="VLMs already see the evidence. Vea makes them use it.">
+<meta name="twitter:image" content="https://zhiningliu.com/VEA/static/images/framework.png">
+
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="static/images/banner.svg" alt="Vea: Visual Evidence Augmentation">
+
+    <h1 class="title">Seeing but Not Believing <span class="venue-tag">ICLR 2026</span></h1>
+    <p class="subtitle">Probing the Disconnect Between Visual Attention and Answer Correctness
+      in Vision-Language Models</p>
+
+    <p class="authors">
+      Zhining Liu<sup>1</sup>,
+      Ziyi Chen<sup>1</sup>,
+      Hui Liu<sup>2</sup>,
+      Chen Luo<sup>2</sup>,
+      Xianfeng Tang<sup>2</sup>,
+      Suhang Wang<sup>2,3</sup>,
+      Joy Zeng<sup>2</sup>,
+      Zhenwei Dai<sup>2</sup>,
+      Zhan Shi<sup>2</sup>,
+      Tianxin Wei<sup>1</sup>,
+      Benoit Dumoulin<sup>2</sup>,
+      Hanghang Tong<sup>1</sup>
+    </p>
+    <p class="affil"><sup>1</sup>University of Illinois Urbana-Champaign &nbsp;&middot;&nbsp;
+      <sup>2</sup>Amazon &nbsp;&middot;&nbsp; <sup>3</sup>Penn State University</p>
+
+    <nav class="links">
+      <a class="btn primary" href="https://arxiv.org/abs/2510.17771">
+        <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 4h8v1.5H8V16z"/></svg>
+        Paper
+      </a>
+      <a class="btn" href="https://arxiv.org/pdf/2510.17771">
+        <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+        PDF
+      </a>
+      <a class="btn" href="https://github.com/ZhiningLiu1998/VEA">
+        <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.3 9.3 7.8 10.8.6.1.8-.2.8-.6v-2.2c-3.2.7-3.8-1.4-3.8-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C18.6 4 19.6 4.3 19.6 4.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.8-5.8 7.8-10.8C23.5 5.7 18.3.5 12 .5z"/></svg>
+        Code
+      </a>
+      <a class="btn" href="#citation">
+        <svg viewBox="0 0 24 24"><path d="M7 7h4v6H8.5c0 1.4.6 2 2 2v2c-2.6 0-3.5-1.6-3.5-4V7zm7 0h4v6h-2.5c0 1.4.6 2 2 2v2c-2.6 0-3.5-1.6-3.5-4V7z"/></svg>
+        BibTeX
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="tldr">
+      <b>TL;DR</b> &mdash; When a VLM answers a visual question wrongly, it usually <em>did</em> look at the
+      right part of the image. Its deep layers attend to the annotated evidence almost as sharply on questions
+      it gets wrong as on ones it gets right. <b>Vea</b> exploits this: one forward pass reveals where those
+      layers look, the image is re-shown with everything else dimmed, and accuracy rises by
+      <b>+5.7 Exact Match on average (up to +11.1)</b> across 8 VLMs &mdash; with no training, no fine-tuning,
+      and no weight access.
+    </p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2><span class="num">01</span>The finding: seeing but not believing</h2>
+    <p class="lead">The intuitive explanation for a wrong answer is a perception failure &mdash; the model
+      never saw the evidence. That turns out to be the wrong diagnosis.</p>
+
+    <figure>
+      <img src="static/images/seeing-not-believing.png"
+           alt="Three failure cases in which deep-layer attention lands on the correct evidence region but the answer is still wrong">
+      <figcaption>Each case shows the input image and the mean attention map of the late 50% of layers.
+        Deep layers attend to the correct evidence region (<b>red boxes</b>), yet the answers are still wrong
+        &mdash; false rejection, hallucination, and partially-correct failures.</figcaption>
+    </figure>
+
+    <p>The evidence is located, then discarded downstream. Three observations make this precise.</p>
+
+    <div class="two-col">
+      <figure>
+        <img src="static/images/layer-attention-trend.png"
+             alt="Relative attention per token to text versus image tokens across model layers">
+        <figcaption><b>1. Attention migrates from text to image with depth.</b> Early layers are dominated by
+          text tokens; image tokens gain attention progressively deeper in the stack.</figcaption>
+      </figure>
+      <figure>
+        <img src="static/images/layer-attention-maps.png"
+             alt="Per-layer attention heatmaps over VQA images with ground-truth evidence boxes">
+        <figcaption><b>2. Deep layers are sparse but accurate.</b> Shallow layers spread weak attention
+          everywhere; deep layers lock onto small regions that coincide with the ground-truth evidence.</figcaption>
+      </figure>
+    </div>
+
+    <figure>
+      <img src="static/images/evidence-vs-nonevidence.png"
+           alt="Relative attention to evidence versus non-evidence image tokens across layers, split by answer correctness">
+      <figcaption><b>3. The targeting barely weakens when the answer is wrong.</b> Attention to evidence vs.
+        non-evidence image tokens across layers, per VLM family. Dashed lines are <b>incorrect</b> answers
+        &mdash; deep layers still strongly prefer the evidence.</figcaption>
+    </figure>
+
+    <p>So the bottleneck is not perception, it is <b>utilisation</b>. The signal is already inside the model;
+      it just fails to reach the answer.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>The method: Visual Evidence Augmentation</h2>
+    <p class="lead">If the model has already found the evidence, the cheapest intervention is to make that
+      evidence impossible to ignore &mdash; by surfacing the model's <em>own</em> attention back into its
+      input.</p>
+
+    <figure>
+      <img src="static/images/framework.png"
+           alt="The Vea framework: layer profiling, attention attribution, denoising, smoothing, and evidence highlighting">
+    </figure>
+
+    <ol class="steps">
+      <li><b>Profiling</b><span>Score every layer by how well its attention <em>ranks</em> evidence patches
+        (AUROC) on ~100 diagnostic examples; keep the top 10%. Run once per model.</span></li>
+      <li><b>Attribution &nbsp;<code>Eq. 1</code></b><span>Average those layers' attention over the image
+        tokens to obtain one evidence score per patch. Needs a single-token forward pass &mdash; no
+        generation.</span></li>
+      <li><b>Denoising &nbsp;<code>Eq. 2</code></b><span>A patch exceeding every neighbour by more than
+        &lambda;=10 is an encoder artifact, not evidence; replace it with its local mean. Real evidence forms
+        coherent clusters.</span></li>
+      <li><b>Smoothing &nbsp;<code>Eq. 3</code></b><span>Gaussian blur with &sigma;=0.5 of the shorter image
+        side, removing the blocky patch borders that would otherwise read as an unnatural mosaic.</span></li>
+      <li><b>Highlighting &nbsp;<code>Eq. 4</code></b><span>Scale each pixel's brightness by
+        &alpha;&nbsp;+&nbsp;(1&minus;&alpha;)&middot;evidence, with &alpha;=0.5. Evidence keeps its original
+        appearance; everything else dims.</span></li>
+    </ol>
+
+    <p style="margin-top:22px">No gradients, no captioning pass, no second generation. The augmented image and
+      a one-sentence prompt addition are the entire intervention.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2><span class="num">03</span>Results</h2>
+
+    <h3>Answer accuracy (Exact Match, averaged over 4 VQA tasks)</h3>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>LLaVA-NeXT 7B</th><th>13B</th>
+            <th>Qwen2.5-VL 7B</th><th>32B</th>
+            <th>Gemma3 4B</th><th>27B</th>
+            <th>InternVL3.5 8B</th><th>14B</th>
+            <th>Avg. Rank &darr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Base</td><td>38.5</td><td>49.4</td><td>73.4</td><td>69.3</td><td>56.6</td><td>69.3</td><td>79.3</td><td>79.3</td><td>5.38</td></tr>
+          <tr><td>Inst</td><td>38.8</td><td>50.2</td><td>73.9</td><td>69.0</td><td>56.0</td><td>70.2</td><td>79.2</td><td>78.8</td><td>5.47</td></tr>
+          <tr><td>CGR <sup>&dagger;</sup></td><td>45.4</td><td>52.7</td><td>76.1</td><td>73.0</td><td>60.4</td><td>72.3</td><td>82.4</td><td>81.7</td><td>3.09</td></tr>
+          <tr><td>VAR <sup>&dagger;</sup></td><td>42.7</td><td>51.5</td><td>76.4</td><td>70.4</td><td>58.0</td><td>73.4</td><td>80.2</td><td>80.4</td><td>3.44</td></tr>
+          <tr><td>AGLA <sup>&dagger;</sup></td><td>46.4</td><td>53.4</td><td>77.9</td><td>73.8</td><td>60.4</td><td>74.2</td><td>82.3</td><td>82.3</td><td>2.50</td></tr>
+          <tr class="best">
+            <td>Vea</td>
+            <td>49.6<span class="gain">+11.1</span></td>
+            <td>54.1<span class="gain">+4.7</span></td>
+            <td>78.4<span class="gain">+4.9</span></td>
+            <td>75.8<span class="gain">+6.5</span></td>
+            <td>61.2<span class="gain">+4.6</span></td>
+            <td>75.3<span class="gain">+6.0</span></td>
+            <td>83.2<span class="gain">+3.9</span></td>
+            <td>82.9<span class="gain">+3.6</span></td>
+            <td>1.12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">Vea ranks first on <b>every</b> model. Token-F1 tells the same story (avg. rank
+      <b>1.22</b>, up to <b>+17.3</b>). Gains are largest on the smaller models, which have the most unused
+      signal to recover. <sup>&dagger;</sup> Baselines run from their authors' implementations; not
+      reimplemented in our repository.</p>
+
+    <h3>Evidence attribution accuracy (AUROC / NDCG@all)</h3>
+    <p>Does the profiled layer selection localise evidence better than a fixed depth range?</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Attribution</th><th>LLaVA 7B</th><th>LLaVA 13B</th><th>Qwen 7B</th>
+              <th>Qwen 32B</th><th>Gemma 4B</th><th>Gemma 27B</th><th>Avg. Rank &darr;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>L<sub>0&ndash;100%</sub></td><td>75.9 / 47.2</td><td>76.3 / 47.2</td><td>68.5 / 41.7</td><td>57.0 / 33.0</td><td>59.5 / 35.5</td><td>61.8 / 36.4</td><td>4.33 / 4.42</td></tr>
+          <tr><td>L<sub>0&ndash;50%</sub></td><td>68.2 / 43.2</td><td>73.1 / 46.4</td><td>59.4 / 34.2</td><td>51.3 / 31.9</td><td>56.5 / 34.3</td><td>55.4 / 34.9</td><td>5.67 / 5.67</td></tr>
+          <tr><td>L<sub>50&ndash;100%</sub></td><td>78.0 / 54.5</td><td>76.9 / 50.5</td><td>79.5 / 58.1</td><td>67.6 / 43.3</td><td>65.9 / 43.7</td><td>68.1 / 43.6</td><td>2.88 / 2.83</td></tr>
+          <tr><td>VAR <sup>&dagger;</sup></td><td>70.8 / 45.1</td><td>72.1 / 44.0</td><td>75.2 / 54.1</td><td>65.7 / 39.8</td><td>51.2 / 33.3</td><td>58.2 / 36.8</td><td>4.92 / 4.88</td></tr>
+          <tr><td>AGLA <sup>&dagger;</sup></td><td>80.2 / 57.2</td><td>81.1 / 56.6</td><td>77.7 / 55.4</td><td>75.1 / 51.3</td><td>68.3 / 44.5</td><td>73.8 / 49.0</td><td>2.21 / 2.21</td></tr>
+          <tr class="best"><td>Vea</td><td>83.6 / 63.5</td><td>84.4 / 63.5</td><td>85.2 / 68.6</td><td>79.1 / 58.4</td><td>80.0 / 59.9</td><td>81.2 / 60.1</td><td>1.00 / 1.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">The late half always beats the early half &mdash; visual grounding lives deep &mdash; and
+      profiling beats taking the whole late half.</p>
+
+    <h3>Ablations</h3>
+    <div class="two-col">
+      <div>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Variant</th><th>EM</th><th>Token F1</th></tr></thead>
+            <tbody>
+              <tr class="best"><td>Vea</td><td>73.4</td><td>68.1</td></tr>
+              <tr><td>w/o Smoothing</td><td>68.3<span class="drop">&minus;5.12</span></td><td>62.8<span class="drop">&minus;5.27</span></td></tr>
+              <tr><td>w/o Denoise</td><td>70.9<span class="drop">&minus;2.52</span></td><td>64.9<span class="drop">&minus;3.12</span></td></tr>
+              <tr><td>w/o Profiling</td><td>71.0<span class="drop">&minus;2.42</span></td><td>65.3<span class="drop">&minus;2.78</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tnote">Every stage earns its place. Smoothing matters most: an unsmoothed mask reads as an
+          unnatural mosaic and the model distrusts it.</p>
+      </div>
+      <figure style="margin-top:0">
+        <img src="static/images/parameters.png"
+             alt="Parameter analysis for highlight strength alpha and smooth strength sigma">
+        <figcaption>Robust across a wide range of &alpha; and &sigma;; both set to <b>0.5</b> in all
+          experiments.</figcaption>
+      </figure>
+    </div>
+
+    <h3>Robustness to visual degradation</h3>
+    <figure>
+      <img src="static/images/robustness.png"
+           alt="Robustness of Vea under Gaussian noise, reduced resolution, and random patch masking">
+      <figcaption><b>Gains grow as the image degrades.</b> At 60% added noise and 30% patch masking, Vea gains
+        <b>+16.4</b> and <b>+25.8</b> EM &mdash; relative improvements above 110% and 220%. The harder it is to
+        see, the more it helps to be told where to look.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">04</span>Try it</h2>
+    <p>A 50-question TextVQA subset with evidence boxes ships with the repository, so these commands run as
+      written.</p>
+
+<pre><span class="c"># install</span>
+git clone https://github.com/ZhiningLiu1998/VEA.git
+<span class="k">cd</span> VEA &amp;&amp; pip install -e .
+
+<span class="c"># Step A: find this model's visually-grounded layers (once per model)</span>
+python scripts/profile_layers.py --model qwen2.5-vl-7b --limit 100
+
+<span class="c"># main experiment: Base vs. prompt-only vs. Vea</span>
+python scripts/run_qa.py --model qwen2.5-vl-7b \
+    --methods base inst vea \
+    --profile results/profiles/qwen2.5-vl-7b.json
+
+<span class="c"># the central diagnostic, split by answer correctness</span>
+python scripts/run_analysis.py --model qwen2.5-vl-7b</pre>
+
+    <p>Or drive it from Python:</p>
+
+<pre><span class="k">from</span> vea <span class="k">import</span> PROMPTS, Attributor, VeaConfig, load_model, load_samples
+
+model = load_model(<span class="s">"qwen2.5-vl-7b"</span>)
+attributor = Attributor(model, layers=[<span class="s">18</span>, <span class="s">22</span>, <span class="s">24</span>], config=VeaConfig())
+
+sample = load_samples(<span class="s">"textvqa"</span>)[<span class="s">0</span>]
+attribution = attributor.attend(sample, PROMPTS[<span class="s">"qa"</span>])  <span class="c"># 1 forward pass</span>
+augmented = attributor.augment(attribution)             <span class="c"># the highlighted image</span></pre>
+
+    <p>Attribution is supported for LLaVA-1.5, Qwen2.5-VL and Gemma-3. LLaVA-NeXT and InternVL3.5 are
+      evaluated as in the paper, with a <b>delegate</b> model locating the evidence on their behalf &mdash;
+      extracting eager attention from them exhausts an 80GB GPU. Adding a new family means subclassing one
+      adapter.</p>
+
+    <p>The repository reproduces the main QA experiment, the attribution evaluation, layer profiling, the
+      ablations, and the attention analysis. The CGR/VAR/AGLA baselines are not reimplemented, and only a
+      demonstration data subset is redistributable &mdash; see the
+      <a href="https://github.com/ZhiningLiu1998/VEA#scope-of-this-release">scope notes</a>.</p>
+  </div>
+</section>
+
+<section class="alt" id="citation">
+  <div class="wrap">
+    <h2><span class="num">05</span>Citation</h2>
+<pre>@inproceedings{liu2026seeing,
+  title     = {Seeing but Not Believing: Probing the Disconnect Between
+               Visual Attention and Answer Correctness in {VLM}s},
+  author    = {Liu, Zhining and Chen, Ziyi and Liu, Hui and Luo, Chen and
+               Tang, Xianfeng and Wang, Suhang and Zeng, Joy and Dai, Zhenwei and
+               Shi, Zhan and Wei, Tianxin and Dumoulin, Benoit and Tong, Hanghang},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2026}
+}</pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Evidence-box annotations from the
+      <a href="https://huggingface.co/datasets/deepcs233/Visual-CoT">Visual-CoT benchmark</a>
+      (Shao et al., 2024). Models loaded through
+      <a href="https://github.com/huggingface/transformers">Hugging Face Transformers</a>.</p>
+    <p>Paper and figures released under CC BY 4.0. Code released under the
+      <a href="https://github.com/ZhiningLiu1998/VEA/blob/main/LICENSE">MIT License</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

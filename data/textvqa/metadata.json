@@ -1,0 +1,906 @@
+[
+  {
+    "question": "what is the brand of phone?",
+    "answer": "nokia",
+    "image": "0054c91397f2fe05.jpg",
+    "width": 1024,
+    "height": 730,
+    "bboxs": [
+      [
+        334.8076171875,
+        334.30116921663284,
+        385.5695343017578,
+        355.7864154316485
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what type of plane is this?",
+    "answer": "lape",
+    "image": "005635e119b9f32f.jpg",
+    "width": 1024,
+    "height": 667,
+    "bboxs": [
+      [
+        528.8947143554688,
+        307.7920868098736,
+        606.1588134765625,
+        333.30248822644353
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what are the letters on the tail section of the plane?",
+    "answer": "ec",
+    "image": "005635e119b9f32f.jpg",
+    "width": 1024,
+    "height": 667,
+    "bboxs": [
+      [
+        245.32640075683594,
+        353.1802024245262,
+        301.9002227783203,
+        384.3084942623973
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "who is this copyrighted by?",
+    "answer": "simon clancy",
+    "image": "00685bc495504d61.jpg",
+    "width": 786,
+    "height": 1024,
+    "bboxs": [
+      [
+        113.52860650420189,
+        1004.81396484375,
+        182.02843625843525,
+        1023.2244968414307
+      ],
+      [
+        188.93323695659637,
+        1003.395263671875,
+        263.03070889413357,
+        1022.9255142211914
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what year is shown in the photo?",
+    "answer": "2011",
+    "image": "006d10667d17b924.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        426.98272705078125,
+        449.6254577636719,
+        463.8567886352539,
+        478.0857696533203
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what type of meeting is it?",
+    "answer": "rimini",
+    "image": "006d10667d17b924.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        417.64422607421875,
+        125.75439834594727,
+        473.82157135009766,
+        157.3179531097412
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the name of this plane?",
+    "answer": "g-atco",
+    "image": "00c359f294f7dcd9.jpg",
+    "width": 1024,
+    "height": 680,
+    "bboxs": [
+      [
+        323.2694396972656,
+        370.979585647583,
+        440.32849884033203,
+        419.0437689423561
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the plane's call sign?",
+    "answer": "g-atco",
+    "image": "00c359f294f7dcd9.jpg",
+    "width": 1024,
+    "height": 680,
+    "bboxs": [
+      [
+        323.2694396972656,
+        370.979585647583,
+        440.32849884033203,
+        419.0437689423561
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what does this jet advertise as having?",
+    "answer": "friendly low fares",
+    "image": "02b2daa20b00f5d3.jpg",
+    "width": 1024,
+    "height": 682,
+    "bboxs": [
+      [
+        408.2622375488281,
+        299.4079868197441,
+        523.2120056152344,
+        329.23051681369543
+      ],
+      [
+        524.1885375976562,
+        304.9777579307556,
+        576.2264289855957,
+        328.58890157192945
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what letters are visible on the tail of the helicopter?",
+    "answer": "adx",
+    "image": "0320299003ff65fb.jpg",
+    "width": 1024,
+    "height": 584,
+    "bboxs": [
+      [
+        367.0268249511719,
+        307.0843896865845,
+        401.860652923584,
+        331.5631344616413
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the plane name?",
+    "answer": "wp",
+    "image": "0393c9d77b8215a3.jpg",
+    "width": 1024,
+    "height": 532,
+    "bboxs": [
+      [
+        813.302734375,
+        93.77690476179123,
+        859.9505462646484,
+        136.6054490506649
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what happens if you pull?",
+    "answer": "emergency stop",
+    "image": "04dfad38d434409c.jpg",
+    "width": 973,
+    "height": 1024,
+    "bboxs": [
+      [
+        242.9408849477768,
+        172.83726501464844,
+        550.588568598032,
+        228.98706436157227
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what does the sticker on the window say?",
+    "answer": "aa",
+    "image": "04dfad38d434409c.jpg",
+    "width": 973,
+    "height": 1024,
+    "bboxs": [
+      [
+        394.73035246133804,
+        61.067630767822266,
+        449.0110788717866,
+        103.2661247253418
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what made this airplane?",
+    "answer": "biman",
+    "image": "05a4fa87bfdaa243.jpg",
+    "width": 1024,
+    "height": 682,
+    "bboxs": [
+      [
+        507.6422424316406,
+        332.0263500213623,
+        657.3073577880859,
+        368.9266451150179
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what kind of plane is this?",
+    "answer": "biman",
+    "image": "05a4fa87bfdaa243.jpg",
+    "width": 1024,
+    "height": 682,
+    "bboxs": [
+      [
+        507.6422424316406,
+        332.0263500213623,
+        657.3073577880859,
+        368.9266451150179
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what are the numbers on the plane?",
+    "answer": "n337am",
+    "image": "05e8721b42640337.jpg",
+    "width": 1024,
+    "height": 681,
+    "bboxs": [
+      [
+        609.9620971679688,
+        419.1530869603157,
+        674.0349884033203,
+        451.7088653706014
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what type of plane is this?",
+    "answer": "south african",
+    "image": "073f668cdc671c37.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        781.7101440429688,
+        282.9402109980583,
+        875.0057678222656,
+        299.8790732882917
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what model of plane is this?",
+    "answer": "airbus a380",
+    "image": "0782a21a2538f868.jpg",
+    "width": 1024,
+    "height": 408,
+    "bboxs": [
+      [
+        410.6391296386719,
+        177.51156663894653,
+        469.12157440185547,
+        203.01093739271164
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is on the plane?",
+    "answer": "41",
+    "image": "080858916c6e0c6c.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        156.32774353027344,
+        365.83577013015747,
+        214.8102035522461,
+        419.916551284492
+      ],
+      [
+        666.4629516601562,
+        447.61359626054764,
+        746.8433227539062,
+        526.2977240160108
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the number and letter of the plane?",
+    "answer": "n328kf",
+    "image": "08d8e9951c1ea69e.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        483.5361328125,
+        431.3774415254593,
+        614.9883270263672,
+        505.8738870844245
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "which company owns that aircraft?",
+    "answer": "spaceshipone",
+    "image": "08d8e9951c1ea69e.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        476.3834533691406,
+        290.7093021273613,
+        662.9748077392578,
+        315.02643217891455
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what kind of airline is this?",
+    "answer": "lufthansa cargo",
+    "image": "09d87dca721d23be.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        593.3025512695312,
+        351.3841777443886,
+        698.0015640258789,
+        417.794325158
+      ],
+      [
+        699.7840576171875,
+        401.780111014843,
+        770.3078231811523,
+        447.39411353319883
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the plane number?",
+    "answer": "ec-634",
+    "image": "0b2f523a4e734bec.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        652.087158203125,
+        297.0676095187664,
+        783.50341796875,
+        334.41571167111397
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the name of the plane?",
+    "answer": "inta",
+    "image": "0b2f523a4e734bec.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        587.876953125,
+        290.9116306900978,
+        639.5910148620605,
+        311.57785098068416
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the id number written on the rear of the plane?",
+    "answer": "d-chio",
+    "image": "0e40cb14d4c4bbbc.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        192.3373260498047,
+        212.87786000967026,
+        245.16849899291992,
+        233.96489292383194
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what company is this for?",
+    "answer": "java",
+    "image": "0e45202f3462f604.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        171.42237854003906,
+        290.4524917602539,
+        445.22129821777344,
+        431.8338432312012
+      ],
+      [
+        161.1700897216797,
+        536.9305114746094,
+        224.00536346435547,
+        562.886604309082
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what does the sign want to add to java?",
+    "answer": "you",
+    "image": "0e45202f3462f604.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        556.6591186523438,
+        328.7900390625,
+        730.3720550537109,
+        438.5672721862793
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "the train number is?",
+    "answer": "1450",
+    "image": "0fd38fd0f9bf1bee.jpg",
+    "width": 1024,
+    "height": 764,
+    "bboxs": [
+      [
+        242.89170837402344,
+        310.33080542087555,
+        299.24190521240234,
+        337.6524076759815
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what 3 digit number is on the plane in the back?",
+    "answer": "987",
+    "image": "0fef083ac0b5dff6.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        34.247493743896484,
+        363.61727142333984,
+        72.13334274291992,
+        393.0335998535156
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the id number on the tail of the plane?",
+    "answer": "513",
+    "image": "10513fda50da5e6d.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        846.8458862304688,
+        331.4725112915039,
+        887.7841682434082,
+        359.565167427063
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the word on the side of this plane?",
+    "answer": "teamaerostar.com",
+    "image": "1086a31c9367a124.jpg",
+    "width": 1024,
+    "height": 682,
+    "bboxs": [
+      [
+        380.50311279296875,
+        287.7325711250305,
+        473.5528259277344,
+        328.1277155280113
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is this plane?",
+    "answer": "34",
+    "image": "1086a31c9367a124.jpg",
+    "width": 1024,
+    "height": 682,
+    "bboxs": [
+      [
+        270.1976013183594,
+        243.86064141988754,
+        320.02611541748047,
+        288.70712304115295
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is written on the side of this airplane?",
+    "answer": "cs-dkd",
+    "image": "111d7be56517ed46.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        435.0103759765625,
+        287.12806621193886,
+        525.369987487793,
+        309.8479939289391
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is on the plane?",
+    "answer": "cs-dkd",
+    "image": "111d7be56517ed46.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        435.0103759765625,
+        287.12806621193886,
+        525.369987487793,
+        309.8479939289391
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is on the silver plane?",
+    "answer": "63",
+    "image": "1139456aa3f70a34.jpg",
+    "width": 1024,
+    "height": 680,
+    "bboxs": [
+      [
+        142.50335693359375,
+        409.78577852249146,
+        208.2813720703125,
+        458.31892758607864
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what identification number belongs to the big bomber plane in the center?",
+    "answer": "82",
+    "image": "1252873867aa8a86.jpg",
+    "width": 1024,
+    "height": 681,
+    "bboxs": [
+      [
+        229.9193115234375,
+        352.2601994276047,
+        297.37708282470703,
+        393.6477084606886
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "two letters on the tail?",
+    "answer": "ah",
+    "image": "13dec395531b458f.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        106.68666076660156,
+        282.0823704600334,
+        167.90890502929688,
+        320.1248498894274
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the number found on the head of the plane?",
+    "answer": "106",
+    "image": "13dec395531b458f.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        905.253662109375,
+        347.8081323504448,
+        949.2452239990234,
+        375.29275269061327
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is on the plane?",
+    "answer": "155",
+    "image": "1582c8538686d50d.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        505.053466796875,
+        302.01661908626556,
+        563.1727638244629,
+        367.742065474391
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the identification number?",
+    "answer": "a380",
+    "image": "15a48b2dd565998a.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        487.0195617675781,
+        208.85400491952896,
+        541.1702651977539,
+        265.76153898239136
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what letter is the symbol on the tale of the plane?",
+    "answer": "m",
+    "image": "15da5c794efe07b6.jpg",
+    "width": 1024,
+    "height": 582,
+    "bboxs": [
+      [
+        617.8125610351562,
+        258.89796352386475,
+        664.4355697631836,
+        316.63847494125366
+      ],
+      [
+        198.48780822753906,
+        317.461354136467,
+        248.2957000732422,
+        364.66219702363014
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what does it say on the jet?",
+    "answer": "us air force",
+    "image": "163c6f54edee23ae.jpg",
+    "width": 1024,
+    "height": 680,
+    "bboxs": [
+      [
+        451.31622314453125,
+        311.8751049041748,
+        481.6883316040039,
+        352.5672024488449
+      ],
+      [
+        481.8362731933594,
+        317.9778814315796,
+        527.2624435424805,
+        360.0368897616863
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what branch of the military is the plane from?",
+    "answer": "air force",
+    "image": "163c6f54edee23ae.jpg",
+    "width": 1024,
+    "height": 680,
+    "bboxs": [
+      [
+        451.31622314453125,
+        311.8751049041748,
+        481.6883316040039,
+        352.5672024488449
+      ],
+      [
+        481.8362731933594,
+        317.9778814315796,
+        527.2624435424805,
+        360.0368897616863
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the plane number?",
+    "answer": "105",
+    "image": "1665ff941d73a03f.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        507.72735595703125,
+        287.80650329589844,
+        594.5838241577148,
+        393.2007637023926
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the name of the airline?",
+    "answer": "air canada",
+    "image": "188d67c561540d6b.jpg",
+    "width": 1024,
+    "height": 683,
+    "bboxs": [
+      [
+        185.27528381347656,
+        274.9284273684025,
+        251.03633880615234,
+        294.17061282508075
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is on the back of this plane?",
+    "answer": "3",
+    "image": "1a192511800af150.jpg",
+    "width": 1024,
+    "height": 393,
+    "bboxs": [
+      [
+        845.043701171875,
+        110.67470240592957,
+        877.0713577270508,
+        153.5690477862954
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the name on the plane?",
+    "answer": "iberia",
+    "image": "1a2e9a1c8d9432b6.jpg",
+    "width": 1024,
+    "height": 529,
+    "bboxs": [
+      [
+        663.0624389648438,
+        243.63521206378937,
+        745.5168151855469,
+        265.2347950935364
+      ],
+      [
+        719.4478759765625,
+        340.55302637815475,
+        768.2417831420898,
+        355.85883355885744
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the model number of the plane printed on the rear?",
+    "answer": "ec-hul",
+    "image": "1a2e9a1c8d9432b6.jpg",
+    "width": 1024,
+    "height": 529,
+    "bboxs": [
+      [
+        320.2701721191406,
+        293.55350917577744,
+        370.9583740234375,
+        308.08152105659246
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what number is on the nose of this aircraft?",
+    "answer": "202",
+    "image": "210c80055b9f8e1a.jpg",
+    "width": 1024,
+    "height": 768,
+    "bboxs": [
+      [
+        809.1682739257812,
+        638.5000762939453,
+        847.3012428283691,
+        673.9822654724121
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  },
+  {
+    "question": "what is the identification number on the balloon?",
+    "answer": "00-bzw",
+    "image": "226d623d0c70664f.jpg",
+    "width": 680,
+    "height": 1024,
+    "bboxs": [
+      [
+        250.83892941474915,
+        415.6650695800781,
+        329.2558231949806,
+        438.75457191467285
+      ]
+    ],
+    "dataset": "textvqa",
+    "split": "train"
+  }
+]

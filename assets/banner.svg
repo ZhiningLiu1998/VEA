@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 212" width="720" height="212" fill="none" role="img" aria-label="Vea: Visual Evidence Augmentation">
+  <g><rect x="183.64" y="20.00" width="124" height="124" rx="27.28" fill="#0E1626" stroke="#0284C7" stroke-width="2.73"/>
+      <rect x="199.76" y="36.12" width="16.33" height="16.33" rx="2.94" fill="#495668"/>
+      <rect x="218.62" y="36.12" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="237.47" y="36.12" width="16.33" height="16.33" rx="2.94" fill="#5B6161"/>
+      <rect x="256.33" y="36.12" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="275.19" y="36.12" width="16.33" height="16.33" rx="2.94" fill="#495668"/>
+      <rect x="199.76" y="54.98" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="218.62" y="54.98" width="16.33" height="16.33" rx="2.94" fill="#827852"/>
+      <rect x="237.47" y="54.98" width="16.33" height="16.33" rx="2.94" fill="#AE9241"/>
+      <rect x="256.33" y="54.98" width="16.33" height="16.33" rx="2.94" fill="#827852"/>
+      <rect x="275.19" y="54.98" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="199.76" y="73.83" width="16.33" height="16.33" rx="2.94" fill="#5B6161"/>
+      <rect x="218.62" y="73.83" width="16.33" height="16.33" rx="2.94" fill="#AE9241"/>
+      <rect x="237.47" y="73.83" width="16.33" height="16.33" rx="2.94" fill="#FBBF24"/>
+      <rect x="256.33" y="73.83" width="16.33" height="16.33" rx="2.94" fill="#AE9241"/>
+      <rect x="275.19" y="73.83" width="16.33" height="16.33" rx="2.94" fill="#5B6161"/>
+      <rect x="199.76" y="92.69" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="218.62" y="92.69" width="16.33" height="16.33" rx="2.94" fill="#827852"/>
+      <rect x="237.47" y="92.69" width="16.33" height="16.33" rx="2.94" fill="#AE9241"/>
+      <rect x="256.33" y="92.69" width="16.33" height="16.33" rx="2.94" fill="#827852"/>
+      <rect x="275.19" y="92.69" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="199.76" y="111.55" width="16.33" height="16.33" rx="2.94" fill="#495668"/>
+      <rect x="218.62" y="111.55" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="237.47" y="111.55" width="16.33" height="16.33" rx="2.94" fill="#5B6161"/>
+      <rect x="256.33" y="111.55" width="16.33" height="16.33" rx="2.94" fill="#525C65"/>
+      <rect x="275.19" y="111.55" width="16.33" height="16.33" rx="2.94" fill="#495668"/>
+      <rect x="217.10" y="53.46" width="57.07" height="57.07" rx="3.59" fill="none" stroke="#EF4444" stroke-width="2.20"/></g>
+  <path d="M 337.64 46.0 L 363.56 118.0 L 389.48 46.0 M 462.92 46.0 L 411.08 46.0 L 411.08 118.0 L 462.92 118.0 M 411.08 82.00 L 452.55 82.00 M 484.52 118.0 L 510.44 46.0 L 536.36 118.0 M 495.41 90.64 L 525.47 90.64" fill="none" stroke="#0284C7" stroke-width="11.16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="360" y="192" text-anchor="middle" font-family="ui-sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="29" font-weight="600" fill="#64748B">Visual Evidence Augmentation</text>
+</svg>
